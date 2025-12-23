@@ -30,7 +30,7 @@ describe('Integration Tests', () => {
                 {
                     repository: 'heroicons',
                     name: 'arrow-right',
-                    variant: 'outline',
+                    variant: '24/outline',
                     size: 24,
                 },
             ],
@@ -52,9 +52,9 @@ describe('Integration Tests', () => {
 
         try {
             await firstIcon.download();
-            expect(firstIcon.rawSvgText).toBeDefined();
-            expect(firstIcon.rawSvgText).toContain('<svg');
-            expect(firstIcon.rawSvgText).toContain('</svg>');
+            expect(firstIcon.svgText).toBeDefined();
+            expect(firstIcon.svgText).toContain('<svg');
+            expect(firstIcon.svgText).toContain('</svg>');
         } catch (error) {
             // Skip test if network is unavailable
             console.warn('Network request failed, skipping download test:', error);
@@ -76,7 +76,7 @@ describe('Integration Tests', () => {
                 {
                     repository: 'heroicons',
                     name: 'home',
-                    variant: 'outline',
+                    variant: '24/outline',
                 },
                 {
                     repository: 'feather',
@@ -115,7 +115,7 @@ describe('Integration Tests', () => {
                 {
                     repository: 'heroicons',
                     name: 'check',
-                    variant: 'solid',
+                    variant: '24/solid',
                     saveAs: 'check-icon',
                 },
             ],
@@ -141,7 +141,7 @@ describe('Integration Tests', () => {
 
             const content = await tsxFile.text();
             expect(content).toContain('export default function CheckIcon');
-            expect(content).toContain('React.InputHTMLAttributes');
+            expect(content).toContain('SVGProps<SVGSVGElement>');
             expect(content).toContain('{...rest}');
             expect(content).toContain('<title>{title}</title>');
             // Note: width/height props are only added if the SVG has width/height attributes
@@ -160,12 +160,12 @@ describe('Integration Tests', () => {
                 {
                     repository: 'heroicons',
                     name: 'user',
-                    variant: 'outline',
+                    variant: '24/outline',
                 },
                 {
                     repository: 'heroicons',
                     name: 'settings',
-                    variant: 'outline',
+                    variant: '24/outline',
                     output: customDir,
                 },
             ],
@@ -197,7 +197,7 @@ describe('Integration Tests', () => {
                 {
                     repository: 'heroicons',
                     name: 'arrow-right',
-                    variant: 'outline',
+                    variant: '24/outline',
                     // This should be sanitized to 'my-custom-name'
                     saveAs: 'My Custom Name!',
                 },

@@ -151,7 +151,7 @@ describe('IconInput', () => {
 
             await icon.download();
 
-            expect(icon.rawSvgText).toBe(mockSvgContent);
+            expect(icon.svgText).toBe(mockSvgContent);
             expect(globalThis.fetch).toHaveBeenCalledTimes(1);
         });
 
@@ -182,14 +182,14 @@ describe('IconInput', () => {
                 repository: mockRepository,
             });
 
-            icon.rawSvgText = '<svg>existing</svg>';
+            icon.svgText = '<svg>existing</svg>';
 
             globalThis.fetch = mock() as unknown as typeof fetch;
 
             await icon.grabSvgText();
 
             expect(globalThis.fetch).not.toHaveBeenCalled();
-            expect(icon.rawSvgText).toBe('<svg>existing</svg>');
+            expect(icon.svgText).toBe('<svg>existing</svg>');
         });
     });
 
@@ -202,9 +202,9 @@ describe('IconInput', () => {
                 repository: mockRepository,
             });
 
-            icon.rawSvgText = '<?xml version="1.0" encoding="UTF-8"?><svg><path d="M0 0"/></svg>';
+            icon.svgText = '<?xml version="1.0" encoding="UTF-8"?><svg><path d="M0 0"/></svg>';
 
-            const processed = icon.processSvgForReact();
+            const processed = icon.processSvgForReact('Test');
 
             expect(processed).not.toContain('<?xml');
         });
@@ -217,10 +217,10 @@ describe('IconInput', () => {
                 repository: mockRepository,
             });
 
-            icon.rawSvgText =
+            icon.svgText =
                 '<svg stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill-rule="evenodd"><path d="M0 0"/></svg>';
 
-            const processed = icon.processSvgForReact();
+            const processed = icon.processSvgForReact('Test');
 
             expect(processed).toContain('strokeWidth');
             expect(processed).toContain('strokeLinecap');
@@ -237,9 +237,9 @@ describe('IconInput', () => {
                 repository: mockRepository,
             });
 
-            icon.rawSvgText = '<svg width="24" height="24" viewBox="0 0 24 24"><path d="M0 0"/></svg>';
+            icon.svgText = '<svg width="24" height="24" viewBox="0 0 24 24"><path d="M0 0"/></svg>';
 
-            const processed = icon.processSvgForReact();
+            const processed = icon.processSvgForReact('Test');
 
             expect(processed).toContain('width={width}');
             expect(processed).toContain('height={height}');
@@ -255,9 +255,9 @@ describe('IconInput', () => {
                 repository: mockRepository,
             });
 
-            icon.rawSvgText = '<svg viewBox="0 0 24 24"><path d="M0 0"/></svg>';
+            icon.svgText = '<svg viewBox="0 0 24 24"><path d="M0 0"/></svg>';
 
-            const processed = icon.processSvgForReact();
+            const processed = icon.processSvgForReact('Test');
 
             expect(processed).toContain('{...rest}');
         });
@@ -270,14 +270,14 @@ describe('IconInput', () => {
                 repository: mockRepository,
             });
 
-            icon.rawSvgText = '<svg viewBox="0 0 24 24"><path d="M0 0"/></svg>';
+            icon.svgText = '<svg viewBox="0 0 24 24"><path d="M0 0"/></svg>';
 
-            const processed = icon.processSvgForReact();
+            const processed = icon.processSvgForReact('Test');
 
             expect(processed).toContain('<title>{title}</title>');
         });
 
-        test('throws error when rawSvgText is not available', () => {
+        test('throws error when svgText is not available', () => {
             const icon = new IconInput({
                 output: './icons',
                 name: 'test',
@@ -285,7 +285,7 @@ describe('IconInput', () => {
                 repository: mockRepository,
             });
 
-            expect(() => icon.processSvgForReact()).toThrow('SVG text is not available');
+            expect(() => icon.processSvgForReact('Test')).toThrow('SVG text is not available');
         });
     });
 
@@ -303,8 +303,11 @@ describe('IconInput', () => {
 
             expect(tsx).toContain('export default function ArrowRight');
             expect(tsx).toContain('title = "arrow-right"');
-            expect(tsx).toContain('React.InputHTMLAttributes<HTMLOrSVGElement>');
-            expect(tsx).toContain(svgContent);
+            expect(tsx).toContain('SVGProps<SVGSVGElement>');
+            expect(tsx).toContain('<path d="M0 0"/>');
+            expect(tsx).toContain('{...rest}');
+            expect(tsx).toContain('width={width}');
+            expect(tsx).toContain('height={height}');
         });
 
         test('uses correct component name', () => {
@@ -331,7 +334,7 @@ describe('IconInput', () => {
                 tsxTransform: false,
             });
 
-            icon.rawSvgText = '<svg><path d="M0 0"/></svg>';
+            icon.svgText = '<svg><path d="M0 0"/></svg>';
 
             await icon.saveToFile();
 
@@ -350,7 +353,8 @@ describe('IconInput', () => {
                 tsxTransform: true,
             });
 
-            icon.rawSvgText = '<svg width="24" height="24"><path d="M0 0"/></svg>';
+            icon.svgText = '<svg width="24" height="24"><path d="M0 0"/></svg>';
+            icon.transform();
 
             await icon.saveToFile();
 
@@ -362,7 +366,7 @@ describe('IconInput', () => {
             expect(content).toContain('height={height}');
         });
 
-        test('throws error when rawSvgText is not available', async () => {
+        test('throws error when svgText is not available', async () => {
             const icon = new IconInput({
                 output: '/tmp/test-icons',
                 name: 'test-icon',

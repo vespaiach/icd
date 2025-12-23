@@ -1,5 +1,16 @@
 {
     "name": "icd",
+    "version": "1.0.0",
+    "license": "MIT",
+    "description": "A CLI tool to download icons from various icon libraries based on a JSON configuration file.",
+    "author": "Trinh Nguyen <nta.toan@gmail.com>",
+    "bugs": {
+        "url": "https://github.com/vespaiach/icd/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vespaiach/icd.git"
+    },
     "type": "module",
     "bin": {
         "icd": "./dist/index.js"
@@ -12,6 +23,7 @@
         "build": "bun build ./src/index.ts  --outdir dist  --target node  --format esm",
         "pack": "bun build ./src/index.ts --compile --outfile icd",
         "test:real": "rm -rf ./test-icons &&node ./dist/index.js -v -c ./icons.input.json",
+        "lint": "biome check . --verbose",
         "prepublishOnly": "bun run build"
     },
     "devDependencies": {

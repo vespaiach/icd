@@ -1,144 +1,144 @@
 {
-  "$schema": "./src/icons.input.schema.json",
-  "repository": "heroicons",
-  "output": "./test-icons",
-  "icons": [
-    {
-      "repository": "bootstrap-icons",
-      "name": "heart",
-      "saveAs": "bootstrap-heart",
-      "tsxTransform": true
-    },
-    {
-      "repository": "bootstrap-icons",
-      "name": "github",
-      "saveAs": "bootstrap-github"
-    },
-    {
-      "repository": "boxicons",
-      "name": "bx-home",
-      "variant": "regular",
-      "saveAs": "boxicons-home-regular"
-    },
-    {
-      "repository": "boxicons",
-      "name": "bxs-adjust-alt",
-      "variant": "solid",
-      "saveAs": "boxicons-star-solid"
-    },
-    {
-      "repository": "boxicons",
-      "name": "bxl-github",
-      "variant": "logos",
-      "saveAs": "boxicons-github-logo"
-    },
-    {
-      "repository": "bytesize-icons",
-      "name": "heart",
-      "saveAs": "bytesize-heart"
-    },
-    {
-      "repository": "bytesize-icons",
-      "name": "mail",
-      "saveAs": "bytesize-mail"
-    },
-    {
-      "repository": "css-gg",
-      "name": "add-r",
-      "saveAs": "cssgg-add-r"
-    },
-    {
-      "repository": "css-gg",
-      "name": "bowl"
-    },
-    {
-      "repository": "eva-icons",
-      "name": "activity-outline",
-      "variant": "outline"
-    },
-    {
-      "repository": "eva-icons",
-      "name": "activity-outline",
-      "variant": "outline",
-      "saveAs": "eva-heart-outline"
-    },
-    {
-      "repository": "feather",
-      "name": "heart",
-      "saveAs": "feather-heart"
-    },
-    {
-      "repository": "feather",
-      "name": "star",
-      "saveAs": "feather-star"
-    },
-    {
-      "repository": "font-awesome",
-      "name": "heart",
-      "variant": "regular",
-      "saveAs": "fa-heart-regular"
-    },
-    {
-      "repository": "font-awesome",
-      "name": "star",
-      "variant": "solid",
-      "saveAs": "fa-star-solid"
-    },
-    {
-      "repository": "font-awesome",
-      "name": "github",
-      "variant": "brands",
-      "saveAs": "fa-github-brands"
-    },
-    {
-      "repository": "heroicons",
-      "name": "archive-box",
-      "variant": "16/solid",
-      "saveAs": "heroicons-home-outline"
-    },
-    {
-      "repository": "heroicons",
-      "name": "heart",
-      "variant": "20/solid",
-      "saveAs": "heroicons-heart-solid"
-    },
-    {
-      "repository": "heroicons",
-      "name": "star",
-      "variant": "24/outline",
-      "saveAs": "heroicons-star-mini"
-    },
-    {
-      "repository": "ionicons",
-      "name": "heart",
-      "saveAs": "ionicons-heart"
-    },
-    {
-      "repository": "ionicons",
-      "name": "home",
-      "saveAs": "ionicons-home"
-    },
-    {
-      "repository": "lucide",
-      "name": "heart",
-      "saveAs": "lucide-heart"
-    },
-    {
-      "repository": "lucide",
-      "name": "star",
-      "saveAs": "lucide-star"
-    },
-    {
-      "repository": "tabler-icons",
-      "name": "heart",
-      "variant": "outline",
-      "saveAs": "tabler-heart-outline"
-    },
-    {
-      "repository": "tabler-icons",
-      "name": "star",
-      "variant": "filled",
-      "saveAs": "tabler-star-filled"
-    }
-  ]
+    "$schema": "./src/icons.input.schema.json",
+    "repository": "heroicons",
+    "output": "./test-icons",
+    "icons": [
+        {
+            "repository": "bootstrap-icons",
+            "name": "heart",
+            "saveAs": "bootstrap-heart",
+            "tsxTransform": true
+        },
+        {
+            "repository": "bootstrap-icons",
+            "name": "github",
+            "saveAs": "bootstrap-github"
+        },
+        {
+            "repository": "boxicons",
+            "name": "bx-home",
+            "variant": "regular",
+            "saveAs": "boxicons-home-regular"
+        },
+        {
+            "repository": "boxicons",
+            "name": "bxs-adjust-alt",
+            "variant": "solid",
+            "saveAs": "boxicons-star-solid"
+        },
+        {
+            "repository": "boxicons",
+            "name": "bxl-github",
+            "variant": "logos",
+            "saveAs": "boxicons-github-logo"
+        },
+        {
+            "repository": "bytesize-icons",
+            "name": "heart",
+            "saveAs": "bytesize-heart"
+        },
+        {
+            "repository": "bytesize-icons",
+            "name": "mail",
+            "saveAs": "bytesize-mail"
+        },
+        {
+            "repository": "css-gg",
+            "name": "add-r",
+            "saveAs": "cssgg-add-r"
+        },
+        {
+            "repository": "css-gg",
+            "name": "bowl"
+        },
+        {
+            "repository": "eva-icons",
+            "name": "activity-outline",
+            "variant": "outline"
+        },
+        {
+            "repository": "eva-icons",
+            "name": "activity-outline",
+            "variant": "outline",
+            "saveAs": "eva-heart-outline"
+        },
+        {
+            "repository": "feather",
+            "name": "heart",
+            "saveAs": "feather-heart"
+        },
+        {
+            "repository": "feather",
+            "name": "star",
+            "saveAs": "feather-star"
+        },
+        {
+            "repository": "font-awesome",
+            "name": "heart",
+            "variant": "regular",
+            "saveAs": "fa-heart-regular"
+        },
+        {
+            "repository": "font-awesome",
+            "name": "star",
+            "variant": "solid",
+            "saveAs": "fa-star-solid"
+        },
+        {
+            "repository": "font-awesome",
+            "name": "github",
+            "variant": "brands",
+            "saveAs": "fa-github-brands"
+        },
+        {
+            "repository": "heroicons",
+            "name": "archive-box",
+            "variant": "16/solid",
+            "saveAs": "heroicons-home-outline"
+        },
+        {
+            "repository": "heroicons",
+            "name": "heart",
+            "variant": "20/solid",
+            "saveAs": "heroicons-heart-solid"
+        },
+        {
+            "repository": "heroicons",
+            "name": "star",
+            "variant": "24/outline",
+            "saveAs": "heroicons-star-mini"
+        },
+        {
+            "repository": "ionicons",
+            "name": "heart",
+            "saveAs": "ionicons-heart"
+        },
+        {
+            "repository": "ionicons",
+            "name": "home",
+            "saveAs": "ionicons-home"
+        },
+        {
+            "repository": "lucide",
+            "name": "heart",
+            "saveAs": "lucide-heart"
+        },
+        {
+            "repository": "lucide",
+            "name": "star",
+            "saveAs": "lucide-star"
+        },
+        {
+            "repository": "tabler-icons",
+            "name": "heart",
+            "variant": "outline",
+            "saveAs": "tabler-heart-outline"
+        },
+        {
+            "repository": "tabler-icons",
+            "name": "star",
+            "variant": "filled",
+            "saveAs": "tabler-star-filled"
+        }
+    ]
 }

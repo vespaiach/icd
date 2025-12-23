@@ -1,5 +1,5 @@
-import { mkdir, writeFile } from 'fs/promises';
-import { dirname } from 'path';
+import { mkdir, writeFile } from 'node:fs/promises';
+import { dirname } from 'node:path';
 import * as prettier from 'prettier';
 import type { RepositoryConfig } from './types';
 import { logError } from './utils';
@@ -161,17 +161,13 @@ export class IconInput {
                 .split('-')
                 .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
                 .join('');
-            this.svgText = this.processSvgForReact(componentName);
+            this.svgText = this.generateTsxContent(this.svgText, componentName);
         }
     }
 
-    processSvgForReact(componentName: string): string {
-        if (!this.svgText) {
-            throw new Error(`SVG text is not available for icon ${this.name}`);
-        }
-
+    generateTsxContent(svgContent: string, componentName: string): string {
         // Remove XML declaration if present
-        let processed = this.svgText.replace(/<\?xml[^?]*\?>/g, '');
+        let processed = svgContent.replace(/<\?xml[^?]*\?>/g, '');
 
         // Convert common SVG attributes to camelCase
         const attributeMap: Record<string, string> = {
@@ -216,8 +212,8 @@ interface IconProps extends SVGProps<SVGSVGElement> {
     title?: string;
 }
 
-export default function BootstrapHeart({
-    title = '${this.name}',
+export default function ${componentName}({
+    title = "${this.name}",
     width,
     height,
     ...rest
@@ -227,5 +223,12 @@ export default function BootstrapHeart({
     );
 }
         `;
+    }
+
+    processSvgForReact(componentName: string): string {
+        if (!this.svgText) {
+            throw new Error(`SVG text is not available for icon ${this.name}`);
+        }
+        return this.generateTsxContent(this.svgText, componentName);
     }
 }

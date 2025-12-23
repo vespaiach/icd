@@ -1,6 +1,6 @@
+import { readFile } from 'node:fs/promises';
+import { resolve } from 'node:path';
 import Ajv from 'ajv';
-import { readFile } from 'fs/promises';
-import { resolve } from 'path';
 import { IconInput } from './IconInput';
 import schema from './icons.input.schema.json';
 import repositoryPresets from './presets.yaml';
@@ -65,7 +65,7 @@ export const santizeFilename = (rawFilename: string): string => {
         .replace(/[^a-z0-9-]/g, '-');
 };
 
-export const logError = (data: { icon?: IconInput, method?: string, error: Error }) => {
+export const logError = (data: { icon?: IconInput; method?: string; error: Error }) => {
     // TODO: Implement proper error reporting/logging
     console.warn(data.error.message);
 };

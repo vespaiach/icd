@@ -118,7 +118,7 @@ type NoVariantConfig = BaseIconConfig & {
 };
 
 // Discriminated union of all icon configurations
-export type IconConfig = 
+export type IconConfig =
     | BoxiconsConfig
     | EvaIconsConfig
     | FontAwesomeConfig

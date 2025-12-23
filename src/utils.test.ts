@@ -38,7 +38,7 @@ describe('loadAndParseIconInputsFromFile', () => {
                 {
                     repository: 'heroicons',
                     name: 'arrow-right',
-                    variant: 'outline',
+                    variant: '24/outline',
                     size: 24,
                 },
             ],
@@ -52,7 +52,7 @@ describe('loadAndParseIconInputsFromFile', () => {
         expect(result[0]).toBeInstanceOf(IconInput);
         expect(result[0]?.name).toBe('arrow-right');
         expect(result[0]?.filename).toBe('arrow-right');
-        expect(result[0]?.variant).toBe('outline');
+        expect(result[0]?.variant).toBe('24/outline');
         expect(result[0]?.size).toBe(24);
         expect(result[0]?.output).toBe('./icons');
     });
@@ -148,7 +148,7 @@ describe('loadAndParseIconInputsFromFile', () => {
                 {
                     repository: 'heroicons',
                     name: 'arrow-right',
-                    variant: 'outline',
+                    variant: '24/outline',
                 },
                 {
                     repository: 'feather',
