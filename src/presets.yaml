@@ -1,0 +1,121 @@
+# Icon Repository Presets
+# This file contains preconfigured repository settings for popular icon libraries
+
+repositories:
+  # Bootstrap Icons
+  - name: bootstrap-icons
+    owner: twbs
+    repo: icons
+    branch: main
+    pathTemplate: icons/{iconName}.svg
+    demoUrl: https://icons.getbootstrap.com
+    license: MIT license
+
+  # Boxicons
+  - name: boxicons
+    owner: atisawd
+    repo: boxicons
+    branch: master
+    pathTemplate: svg/{variant}/{iconName}.svg
+    variants:
+      - regular
+      - solid
+      - logos
+    demoUrl: https://boxicons.com
+    license: MIT license
+
+  # Bytesize Icons
+  - name: bytesize-icons
+    owner: danklammer
+    repo: bytesize-icons
+    branch: master
+    pathTemplate: dist/icons/{iconName}.svg
+    demoUrl: https://danklammer.com/bytesize-icons
+    license: MIT license
+
+  # css.gg
+  - name: css-gg
+    owner: astrit
+    repo: css.gg
+    branch: main
+    pathTemplate: icons/svg/{iconName}.svg
+    demoUrl: https://css.gg
+    license: Custom (https://css.gg/licence.txt)
+
+  # Eva Icons
+  - name: eva-icons
+    owner: akveo
+    repo: eva-icons
+    branch: master
+    pathTemplate: package/icons/{variant}/svg/{iconName}.svg
+    variants:
+      - fill
+      - outline
+    demoUrl: https://akveo.github.io/eva-icons
+    licence: MIT license
+
+  # Feather Icons
+  - name: feather
+    owner: feathericons
+    repo: feather
+    branch: master
+    pathTemplate: icons/{iconName}.svg
+    demoUrl: https://feathericons.com
+    licence: MIT license
+
+  # Font Awesome
+  - name: font-awesome
+    owner: FortAwesome
+    repo: Font-Awesome
+    branch: 7.x
+    pathTemplate: svgs-full/{variant}/{iconName}.svg
+    variants:
+      - regular
+      - solid
+      - brands
+    demoUrl: https://fontawesome.com
+    licence: Custom (https://github.com/FortAwesome/Font-Awesome?tab=License-1-ov-file#readme)
+
+  # Heroicons
+  - name: heroicons
+    owner: tailwindlabs
+    repo: heroicons
+    branch: master
+    pathTemplate: optimized/{variant}/{iconName}.svg
+    variants:
+      - 16/solid
+      - 20/solid
+      - 24/solid
+      - 24/outline
+    demoUrl: https://heroicons.com
+    licence: MIT license
+
+  # Ionicons
+  - name: ionicons
+    owner: ionic-team
+    repo: ionicons
+    branch: main
+    pathTemplate: src/svg/{iconName}.svg
+    demoUrl: https://ionic.io/ionicons
+    licence: MIT license
+
+  # Lucide Icons
+  - name: lucide
+    owner: lucide-icons
+    repo: lucide
+    branch: main
+    pathTemplate: icons/{iconName}.svg
+    demoUrl: https://lucide.dev
+    licence: Custom (https://github.com/lucide-icons/lucide?tab=License-1-ov-file#readme)
+
+  # Tabler Icons
+  - name: tabler-icons
+    owner: tabler
+    repo: tabler-icons
+    branch: master
+    pathTemplate: icons/{variant}/{iconName}.svg
+    variants:
+      - outline
+      - filled
+    demoUrl: https://tabler.io/icons
+    licence: MIT license

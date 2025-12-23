@@ -1,0 +1,181 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Icons CLI Config",
+    "type": "object",
+    "required": ["icons"],
+    "properties": {
+        "$schema": {
+            "type": "string",
+            "description": "JSON Schema reference"
+        },
+        "repository": {
+            "$ref": "#/$defs/repositoryName",
+            "description": "Global default repository for icons"
+        },
+        "output": {
+            "type": "string",
+            "description": "Default output folder for generated icons"
+        },
+        "icons": {
+            "type": "array",
+            "minItems": 1,
+            "description": "List of icons to generate",
+            "items": {
+                "$ref": "#/$defs/icon"
+            }
+        }
+    },
+    "additionalProperties": false,
+
+    "$defs": {
+        "repositoryName": {
+            "type": "string",
+            "enum": [
+                "bootstrap-icons",
+                "boxicons",
+                "bytesize-icons",
+                "css-gg",
+                "eva-icons",
+                "feather",
+                "font-awesome",
+                "heroicons",
+                "ionicons",
+                "lucide",
+                "tabler-icons"
+            ],
+            "description": "Icon repository source"
+        },
+
+        "icon": {
+            "type": "object",
+            "required": ["name"],
+            "properties": {
+                "repository": {
+                    "$ref": "#/$defs/repositoryName",
+                    "description": "Repository for this icon (overrides global repository)"
+                },
+                "name": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "^[a-z0-9-]+$",
+                    "description": "Icon name in kebab-case"
+                },
+                "variant": {
+                    "type": "string",
+                    "description": "Optional icon variant (e.g. outline, solid)"
+                },
+                "size": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "description": "Icon size in pixels"
+                },
+                "output": {
+                    "type": "string",
+                    "description": "Output folder for this icon (overrides global output)"
+                },
+                "saveAs": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 255,
+                    "pattern": "^[^\\\\/:*?\"<>|]+$",
+                    "description": "Custom filename (without extension). Must be a valid filename on Windows/macOS/Linux"
+                },
+                "overwrite": {
+                    "type": "boolean",
+                    "description": "Overwrite existing file for this icon"
+                },
+                "tsxTransform": {
+                    "type": "boolean",
+                    "description": "Transform SVG to React TSX component"
+                }
+            },
+            "additionalProperties": false,
+            "allOf": [
+                {
+                    "if": {
+                        "properties": {
+                            "repository": { "const": "boxicons" }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "variant": {
+                                "enum": ["regular", "solid", "logos"]
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "repository": { "const": "eva-icons" }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "variant": {
+                                "enum": ["fill", "outline"]
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "repository": { "const": "font-awesome" }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "variant": {
+                                "enum": ["regular", "solid", "brands"]
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "repository": { "const": "heroicons" }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "variant": {
+                                "enum": ["16/solid", "20/solid", "24/solid", "24/outline"]
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "repository": { "const": "tabler-icons" }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "variant": {
+                                "enum": ["outline", "filled"]
+                            }
+                        }
+                    }
+                },
+                {
+                    "if": {
+                        "properties": {
+                            "repository": {
+                                "enum": ["bootstrap-icons", "bytesize-icons", "css-gg", "feather", "ionicons", "lucide"]
+                            }
+                        }
+                    },
+                    "then": {
+                        "not": {
+                            "required": ["variant"]
+                        }
+                    }
+                }
+            ]
+        }
+    }
+}
