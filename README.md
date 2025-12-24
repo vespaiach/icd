@@ -35,7 +35,7 @@ Create an `icons.input.json` file to specify which icons to download:
 
 ```json
 {
-  "$schema": "./src/icons.input.schema.json",
+  "$schema": "https://cdn.jsdelivr.net/gh/vespaiach/icd@main/src/icons.input.schema.json",
   "repository": "heroicons",
   "output": "./icons",
   "icons": [
